@@ -1,0 +1,1372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Found: Real Connections — Stop swiping. Start finding.</title>
+  <meta name="description" content="Found is not another dating app. It's a quiet AI matchmaker that notices when someone compatible crosses your path in real life — and helps you actually connect. Your first match is free.">
+  <meta name="keywords" content="Found app, matchmaking, dating alternative, real connections, AI matchmaker, Sydney dating app, Manly, stop swiping">
+  <meta name="author" content="Found: Real Connections">
+  <meta name="theme-color" content="#F5F0EB">
+
+  <!-- Open Graph / Facebook / WhatsApp / iMessage -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Found: Real Connections">
+  <meta property="og:title" content="Stop swiping. Start finding.">
+  <meta property="og:description" content="Found is a quiet AI matchmaker that notices when someone compatible crosses your path in real life. Your first match is free.">
+  <meta property="og:image" content="hero-image.jpg">
+  <meta property="og:image:alt" content="Two strangers walking across a Sydney street at golden hour, about to notice each other">
+  <meta property="og:locale" content="en_AU">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Stop swiping. Start finding.">
+  <meta name="twitter:description" content="A quiet AI matchmaker that notices when someone compatible crosses your path in real life. Your first match is free.">
+  <meta name="twitter:image" content="hero-image.jpg">
+
+  <!-- Favicon — inline SVG heart -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90' text-anchor='middle' x='50'%3E♥%3C/text%3E%3C/svg%3E">
+  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23F5F0EB'/%3E%3Ctext y='.9em' font-size='80' text-anchor='middle' x='50' fill='%238B3A3A'%3E♥%3C/text%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --cream: #F5F0EB;
+      --warm-white: #FAFAF7;
+      --charcoal: #2C2C2C;
+      --soft-black: #1A1A1A;
+      --muted-grey: #8A8A8A;
+      --warm-grey: #B5B0A8;
+      --blush: #C4A882;
+      --heart-red: #8B3A3A;
+      --soft-glow: rgba(196, 168, 130, 0.15);
+      --paper-shadow: 0 2px 20px rgba(0,0,0,0.06);
+      --card-shadow: 0 8px 40px rgba(0,0,0,0.08);
+    }
+
+    [data-theme="dark"] {
+      --cream: #12100E;
+      --warm-white: #1A1815;
+      --charcoal: #E8E4DD;
+      --soft-black: #F5F0EB;
+      --muted-grey: #9A958C;
+      --warm-grey: #6B665E;
+      --blush: #C4A882;
+      --heart-red: #D26D6D;
+      --soft-glow: rgba(210, 109, 109, 0.12);
+      --paper-shadow: 0 2px 20px rgba(0,0,0,0.3);
+      --card-shadow: 0 8px 40px rgba(0,0,0,0.4);
+    }
+
+    body, nav, section, footer, .pricing-card, details { transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease; }
+
+    /* ── Scroll fade-in ─────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── iPhone mockup frame ─────────────────────────── */
+    .iphone-frame {
+      position: relative;
+      max-width: 280px;
+      margin: 0 auto;
+      padding: 14px 14px 16px;
+      background: #1A1A1A;
+      border-radius: 48px;
+      box-shadow:
+        0 0 0 2px #2a2a2a,
+        0 30px 80px rgba(0,0,0,0.25),
+        inset 0 0 0 2px rgba(255,255,255,0.04);
+    }
+    .iphone-frame::before {
+      content: '';
+      position: absolute;
+      top: 22px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90px;
+      height: 26px;
+      background: #000;
+      border-radius: 16px;
+      z-index: 2;
+    }
+    .iphone-frame::after {
+      content: '';
+      position: absolute;
+      left: -3px;
+      top: 100px;
+      width: 3px;
+      height: 60px;
+      background: #2a2a2a;
+      border-radius: 2px 0 0 2px;
+    }
+    .iphone-frame img {
+      width: 100%;
+      display: block;
+      border-radius: 36px;
+      overflow: hidden;
+    }
+
+    /* ── Numbers strip ─────────────────────────── */
+    .numbers-strip {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 60px;
+      padding: 40px 24px;
+      flex-wrap: wrap;
+      background: var(--warm-white);
+      border-top: 1px solid rgba(0,0,0,0.04);
+      border-bottom: 1px solid rgba(0,0,0,0.04);
+    }
+    .numbers-strip .number-item {
+      text-align: center;
+    }
+    .numbers-strip .number-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--soft-black);
+      line-height: 1;
+    }
+    .numbers-strip .number-label {
+      font-size: 0.78rem;
+      color: var(--muted-grey);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-top: 8px;
+    }
+    .numbers-strip .divider {
+      width: 1px;
+      height: 40px;
+      background: rgba(0,0,0,0.08);
+    }
+
+    /* ── Theme toggle ─────────────────────────── */
+    .theme-toggle {
+      background: none;
+      border: 1px solid rgba(0,0,0,0.1);
+      border-radius: 50%;
+      width: 38px;
+      height: 38px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--charcoal);
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      margin-right: 12px;
+    }
+    .theme-toggle:hover {
+      background: rgba(0,0,0,0.05);
+      transform: scale(1.08);
+    }
+    [data-theme="dark"] .theme-toggle {
+      border-color: rgba(255,255,255,0.15);
+    }
+    [data-theme="dark"] .theme-toggle:hover {
+      background: rgba(255,255,255,0.08);
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+    }
+
+    /* Nav shadow on scroll */
+    nav.scrolled {
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--cream);
+      color: var(--charcoal);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── Navigation ─────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+      backdrop-filter: blur(20px);
+      background: rgba(245, 240, 235, 0.85);
+      border-bottom: 1px solid rgba(0,0,0,0.04);
+    }
+
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--soft-black);
+      text-decoration: none;
+      letter-spacing: -0.5px;
+    }
+
+    .nav-logo span {
+      color: var(--heart-red);
+    }
+
+    .logo-heart {
+      display: inline-block;
+      color: var(--heart-red);
+      font-size: 0.75em;
+      vertical-align: super;
+      line-height: 1;
+      margin: 0 1px;
+      animation: heartbeat 2s ease-in-out infinite;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      15% { transform: scale(1.2); }
+      30% { transform: scale(1); }
+      45% { transform: scale(1.15); }
+      60% { transform: scale(1); }
+    }
+
+    .nav-cta {
+      padding: 10px 28px;
+      background: var(--soft-black);
+      color: var(--warm-white);
+      border: none;
+      border-radius: 50px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .nav-cta:hover {
+      background: var(--charcoal);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    }
+
+    /* ── Hero ─────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 120px 24px 80px;
+      position: relative;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 20%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, var(--soft-glow) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    /* ── Hero image ─────────────────────────── */
+    .hero-visual {
+      width: 100%;
+      max-width: 900px;
+      margin: 48px auto 0;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+      position: relative;
+    }
+
+    .hero-visual img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    /* ── Video section ─────────────────────────── */
+    .video-section {
+      padding: 100px 24px;
+      text-align: center;
+      background: var(--warm-white);
+    }
+
+    .video-container {
+      max-width: 900px;
+      margin: 40px auto 0;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+    }
+
+    .video-container video {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 8px 20px;
+      background: rgba(139, 58, 58, 0.08);
+      border: 1px solid rgba(139, 58, 58, 0.15);
+      border-radius: 50px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--heart-red);
+      margin-bottom: 32px;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3.2rem, 9vw, 7.5rem);
+      font-weight: 700;
+      line-height: 1;
+      color: var(--soft-black);
+      margin-bottom: 32px;
+      letter-spacing: -3px;
+      position: relative;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--heart-red);
+    }
+
+    .hero-sub {
+      font-size: clamp(1.05rem, 2.5vw, 1.3rem);
+      color: var(--muted-grey);
+      max-width: 560px;
+      margin-bottom: 48px;
+      font-weight: 300;
+      line-height: 1.8;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn-primary {
+      padding: 16px 40px;
+      background: var(--soft-black);
+      color: var(--warm-white);
+      border: none;
+      border-radius: 50px;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+    }
+
+    .btn-secondary {
+      padding: 16px 40px;
+      background: transparent;
+      color: var(--charcoal);
+      border: 1.5px solid var(--warm-grey);
+      border-radius: 50px;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      font-weight: 400;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--charcoal);
+      transform: translateY(-2px);
+    }
+
+    .hero-note {
+      margin-top: 32px;
+      font-size: 0.82rem;
+      color: var(--warm-grey);
+    }
+
+    /* ── Section styling ─────────────────────────── */
+    section {
+      padding: 120px 24px;
+    }
+
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--blush);
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 600;
+      text-align: center;
+      color: var(--soft-black);
+      margin-bottom: 20px;
+      letter-spacing: -1px;
+    }
+
+    .section-sub {
+      text-align: center;
+      color: var(--muted-grey);
+      max-width: 520px;
+      margin: 0 auto 64px;
+      font-size: 1.05rem;
+      font-weight: 300;
+      line-height: 1.8;
+    }
+
+    /* ── How It Works ─────────────────────────── */
+    .how-it-works {
+      background: var(--warm-white);
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 40px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .step {
+      text-align: center;
+      padding: 40px 24px;
+      position: relative;
+    }
+
+    .step-number {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--cream);
+      border: 1.5px solid var(--warm-grey);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--charcoal);
+    }
+
+    .step h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: var(--soft-black);
+    }
+
+    .step p {
+      color: var(--muted-grey);
+      font-size: 0.95rem;
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    /* ── Features ─────────────────────────── */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 32px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .feature-card {
+      background: var(--warm-white);
+      border-radius: 20px;
+      padding: 40px 32px;
+      box-shadow: var(--paper-shadow);
+      border: 1px solid rgba(0,0,0,0.03);
+      transition: all 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--card-shadow);
+    }
+
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: var(--cream);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      font-size: 1.4rem;
+    }
+
+    .feature-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: var(--soft-black);
+    }
+
+    .feature-card p {
+      color: var(--muted-grey);
+      font-size: 0.9rem;
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    /* ── Pricing ─────────────────────────── */
+    .pricing {
+      background: var(--warm-white);
+    }
+
+    .pricing-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 32px;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .pricing-card {
+      background: var(--cream);
+      border-radius: 24px;
+      padding: 44px 36px;
+      text-align: center;
+      border: 1.5px solid rgba(0,0,0,0.04);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .pricing-card.featured {
+      background: var(--soft-black);
+      color: var(--warm-white);
+      border-color: transparent;
+      transform: scale(1.03);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    }
+
+    .pricing-card.featured .pricing-label,
+    .pricing-card.featured .pricing-features li {
+      color: rgba(255,255,255,0.7);
+    }
+
+    .pricing-card.featured .pricing-amount {
+      color: var(--warm-white);
+    }
+
+    .pricing-save {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--heart-red);
+      color: white;
+      padding: 4px 16px;
+      border-radius: 50px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .pricing-label {
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted-grey);
+      margin-bottom: 16px;
+    }
+
+    .pricing-amount {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--soft-black);
+      margin-bottom: 4px;
+    }
+
+    .pricing-period {
+      font-size: 0.85rem;
+      color: var(--muted-grey);
+      margin-bottom: 28px;
+    }
+
+    .pricing-features {
+      list-style: none;
+      margin-bottom: 32px;
+    }
+
+    .pricing-features li {
+      padding: 8px 0;
+      font-size: 0.9rem;
+      color: var(--muted-grey);
+      font-weight: 300;
+    }
+
+    .pricing-card .btn-primary {
+      width: 100%;
+      display: block;
+    }
+
+    .pricing-card.featured .btn-primary {
+      background: var(--warm-white);
+      color: var(--soft-black);
+    }
+
+    /* ── Free match banner ─────────────────────────── */
+    .free-banner {
+      text-align: center;
+      padding: 80px 24px;
+      position: relative;
+    }
+
+    .free-banner::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(139, 58, 58, 0.06) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .free-banner h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 600;
+      color: var(--soft-black);
+      margin-bottom: 16px;
+      letter-spacing: -1px;
+    }
+
+    .free-banner p {
+      color: var(--muted-grey);
+      font-size: 1.1rem;
+      font-weight: 300;
+      max-width: 480px;
+      margin: 0 auto 36px;
+      line-height: 1.8;
+    }
+
+    /* ── Testimonial / Quote ─────────────────────────── */
+    .philosophy {
+      text-align: center;
+      padding: 100px 24px;
+      background: var(--warm-white);
+    }
+
+    .philosophy blockquote {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      font-style: italic;
+      color: var(--charcoal);
+      max-width: 680px;
+      margin: 0 auto;
+      line-height: 1.6;
+      letter-spacing: -0.5px;
+    }
+
+    .philosophy .quote-attr {
+      margin-top: 24px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 400;
+      font-style: normal;
+      color: var(--warm-grey);
+      letter-spacing: 1px;
+    }
+
+    /* ── Footer ─────────────────────────── */
+    footer {
+      padding: 60px 24px;
+      text-align: center;
+      border-top: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--soft-black);
+      margin-bottom: 16px;
+    }
+
+    .footer-logo span {
+      color: var(--heart-red);
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: var(--muted-grey);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 400;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--charcoal);
+    }
+
+    .footer-copy {
+      font-size: 0.8rem;
+      color: var(--warm-grey);
+    }
+
+    /* ── Responsive ─────────────────────────── */
+    @media (max-width: 768px) {
+      nav { padding: 14px 18px; }
+      .nav-logo { font-size: 1.25rem; }
+      .nav-cta { padding: 8px 18px; font-size: 0.78rem; }
+      .theme-toggle { width: 34px; height: 34px; margin-right: 8px; }
+
+      section { padding: 70px 20px; }
+      .hero { padding: 100px 20px 60px; min-height: auto; }
+      .hero h1 { font-size: clamp(2.4rem, 11vw, 3.8rem); letter-spacing: -1.5px; margin-bottom: 20px; }
+      .hero-sub { font-size: 1rem; margin-bottom: 32px; }
+      .hero-badge { font-size: 0.68rem; padding: 6px 16px; margin-bottom: 24px; }
+      .hero-buttons { flex-direction: column; align-items: stretch; width: 100%; max-width: 320px; margin: 0 auto; }
+      .btn-primary, .btn-secondary { padding: 14px 28px; font-size: 0.95rem; width: 100%; text-align: center; }
+      .hero-visual { margin-top: 32px; border-radius: 16px; }
+
+      .section-title { font-size: clamp(1.8rem, 6vw, 2.4rem); letter-spacing: -0.5px; }
+      .section-sub { font-size: 0.95rem; }
+
+      .steps { gap: 20px; }
+      .step { padding: 24px 16px; }
+
+      .pricing-card { padding: 32px 24px; }
+      .pricing-card.featured { transform: scale(1) !important; box-shadow: 0 12px 40px rgba(139, 58, 58, 0.18), 0 0 0 2px var(--heart-red) !important; }
+
+      .numbers-strip { gap: 28px; padding: 32px 20px; }
+      .numbers-strip .divider { display: none; }
+      .numbers-strip .number-value { font-size: 1.4rem; }
+
+      .iphone-frame { max-width: 240px; padding: 10px 10px 12px; border-radius: 38px; }
+      .iphone-frame::before { width: 70px; height: 20px; top: 18px; }
+      .iphone-frame img { border-radius: 28px; }
+      .iphone-frame[style*="scale"] { transform: scale(1) !important; }
+
+      blockquote { font-size: 1.3rem !important; }
+
+      footer { padding: 60px 20px 30px !important; }
+      .footer-logo { font-size: 1.6rem !important; }
+      .footer-links { gap: 18px !important; }
+
+      details summary { font-size: 1rem !important; }
+    }
+
+    @media (max-width: 480px) {
+      section { padding: 60px 18px; }
+      .hero h1 { font-size: 2.6rem; }
+      .features-grid { grid-template-columns: 1fr !important; }
+    }
+
+    /* ── Subtle animations ─────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero h1, .hero-sub, .hero-badge, .hero-buttons {
+      animation: fadeUp 0.8s ease-out forwards;
+    }
+
+    .hero-sub { animation-delay: 0.15s; }
+    .hero-buttons { animation-delay: 0.3s; }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="#" class="nav-logo">F<span class="logo-heart">♥</span>ound</a>
+    <div class="nav-right">
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" title="Toggle dark mode">◐</button>
+      <a href="#download" class="nav-cta">Download</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-badge">First match free</div>
+    <h1>Stop swiping.<br>Start <em>finding.</em></h1>
+    <p class="hero-sub">Found notices when someone compatible crosses your path in real life — then helps you actually connect.</p>
+    <div class="hero-buttons">
+      <a href="#download" class="btn-primary">Download on the App Store</a>
+      <a href="#how" class="btn-secondary">See how it works</a>
+    </div>
+    <p class="hero-note">Free to download. Your first match is on us.</p>
+
+    <div class="hero-visual">
+      <img src="hero-image.jpg" alt="Two people crossing paths on a beautiful sunny day">
+    </div>
+  </section>
+
+  <!-- Numbers strip / social proof -->
+  <div class="numbers-strip">
+    <div class="number-item">
+      <div class="number-value">Founding Members</div>
+      <div class="number-label">Join the first chapter</div>
+    </div>
+    <div class="divider"></div>
+    <div class="number-item">
+      <div class="number-value">April 2026</div>
+      <div class="number-label">Launching soon</div>
+    </div>
+    <div class="divider"></div>
+    <div class="number-item">
+      <div class="number-value">Manly, NSW</div>
+      <div class="number-label">Made with love</div>
+    </div>
+  </div>
+
+  <!-- Why Found Exists -->
+  <section style="padding: 120px 24px; background: var(--warm-white); position: relative;">
+    <div style="max-width: 1100px; margin: 0 auto;">
+      <div class="section-label" style="text-align: center;">Why Found exists</div>
+      <h2 class="section-title" style="text-align: center;">We built the opposite<br>of a dating app.</h2>
+
+      <div style="max-width: 780px; margin: 40px auto 80px; text-align: center;">
+        <p style="font-size: 1.15rem; line-height: 1.9; color: var(--charcoal); margin-bottom: 24px;">
+          Swiping made us lonely. Endless text threads that go nowhere. Matches that never meet. Profiles that feel like résumés. We're all tired of it.
+        </p>
+        <p style="font-size: 1.15rem; line-height: 1.9; color: var(--charcoal); margin-bottom: 24px;">
+          <strong>Found is not another dating app.</strong> It's a matchmaker — a quiet one that lives on your phone and pays attention to the world around you.
+        </p>
+        <p style="font-size: 1.15rem; line-height: 1.9; color: var(--charcoal);">
+          When you open Found, you tell us who you are, what you value, and what you're really looking for. Our AI learns the shape of your heart — not just your height and hobbies. Then it waits.
+        </p>
+      </div>
+
+      <!-- Image feature -->
+      <div style="margin: 80px 0; border-radius: 24px; overflow: hidden; box-shadow: var(--card-shadow);">
+        <img src="city-moment.jpg" alt="Two strangers crossing paths on a busy city street — the Found moment" style="width: 100%; display: block;">
+      </div>
+
+      <!-- The magic moment -->
+      <div style="max-width: 780px; margin: 0 auto; text-align: center;">
+        <p style="font-family: 'Playfair Display', serif; font-size: 1.6rem; font-style: italic; color: var(--soft-black); line-height: 1.5; margin-bottom: 40px;">
+          And then one day, something magical happens.
+        </p>
+        <p style="font-size: 1.15rem; line-height: 1.9; color: var(--charcoal); margin-bottom: 24px;">
+          You're at your favourite café. You're walking the coast. You're just living your life. Your phone quietly notices someone nearby — someone whose values, humour, and intentions match yours. Not because they swiped right. Because they're <em>actually the one you've been looking for</em>.
+        </p>
+        <p style="font-size: 1.15rem; line-height: 1.9; color: var(--charcoal); margin-bottom: 24px;">
+          They appear in your Waiting Room. You hear their voice before you see their face. You have <strong>only a few messages</strong> — not hundreds — because we believe real connection happens in person, not on a screen.
+        </p>
+        <p style="font-size: 1.15rem; line-height: 1.9; color: var(--charcoal);">
+          Meet in person. Or let them go. No pressure. No endless scrolling. No performing for strangers. Just real life, made a little more magical.
+        </p>
+      </div>
+
+      <!-- Key principles -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; margin-top: 80px; max-width: 1000px; margin-left: auto; margin-right: auto;">
+        <div style="text-align: center; padding: 32px 20px;">
+          <div style="font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--heart-red); margin-bottom: 12px;">♥</div>
+          <h3 style="font-family: 'Playfair Display', serif; font-size: 1.15rem; margin-bottom: 10px; color: var(--soft-black);">AI that understands you</h3>
+          <p style="font-size: 0.95rem; color: var(--muted-grey); line-height: 1.7;">Our matchmaking engine learns who you are — not just what you look like — and finds people who truly fit.</p>
+        </div>
+        <div style="text-align: center; padding: 32px 20px;">
+          <div style="font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--heart-red); margin-bottom: 12px;">📍</div>
+          <h3 style="font-family: 'Playfair Display', serif; font-size: 1.15rem; margin-bottom: 10px; color: var(--soft-black);">GPS-powered serendipity</h3>
+          <p style="font-size: 0.95rem; color: var(--muted-grey); line-height: 1.7;">When someone compatible crosses your path in real life, Found notices — and gently lets you know.</p>
+        </div>
+        <div style="text-align: center; padding: 32px 20px;">
+          <div style="font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--heart-red); margin-bottom: 12px;">✉</div>
+          <h3 style="font-family: 'Playfair Display', serif; font-size: 1.15rem; margin-bottom: 10px; color: var(--soft-black);">A few words, not a thousand</h3>
+          <p style="font-size: 0.95rem; color: var(--muted-grey); line-height: 1.7;">Limited messages by design. Real connection belongs in person — not in endless text threads.</p>
+        </div>
+        <div style="text-align: center; padding: 32px 20px;">
+          <div style="font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--heart-red); margin-bottom: 12px;">☕</div>
+          <h3 style="font-family: 'Playfair Display', serif; font-size: 1.15rem; margin-bottom: 10px; color: var(--soft-black);">Meet in real life</h3>
+          <p style="font-size: 0.95rem; color: var(--muted-grey); line-height: 1.7;">Found exists to get you off your phone and across the table from someone who actually matters.</p>
+        </div>
+      </div>
+
+      <!-- Inline CTA after philosophy -->
+      <div style="text-align: center; margin-top: 80px;">
+        <a href="#download" class="btn-primary" style="display: inline-block; padding: 18px 48px; background: var(--soft-black); color: var(--warm-white); text-decoration: none; border-radius: 100px; font-weight: 500; font-size: 1rem; letter-spacing: 0.3px; box-shadow: 0 8px 24px rgba(0,0,0,0.12); transition: transform 0.2s;">Try Found — Your First Match is Free</a>
+        <p style="margin-top: 16px; font-size: 0.85rem; color: var(--muted-grey);">No credit card. No swiping. No pressure.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="how-it-works" id="how">
+    <div class="section-label">How it works</div>
+    <h2 class="section-title">Real life.<br>Real people.<br><em>Real connection.</em></h2>
+    <p class="section-sub">No algorithms guessing who you'd like. Found works with real moments — the ones already happening around you.</p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-number">1</div>
+        <h3>Live your life</h3>
+        <p>Found works quietly in the background. Go to your favourite cafe, walk through the park, ride the train. Just be you.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">2</div>
+        <h3>Someone crosses your path</h3>
+        <p>When a compatible person is nearby, Found notices. You'll see them appear in your Waiting Room with a voice intro.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">3</div>
+        <h3>Listen, then decide</h3>
+        <p>Hear their voice before you see their face. Unlock their profile when you're ready. No pressure, no rush.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">4</div>
+        <h3>Connect for real</h3>
+        <p>Start a conversation with AI-powered coaching. Meet for coffee, drinks, or an adventure. Something real begins.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="features">
+    <div class="section-label">Features</div>
+    <h2 class="section-title">Everything you need,<br>nothing you don't</h2>
+    <p class="section-sub">Built for people who are tired of dating apps that feel like a game.</p>
+
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🎙</div>
+        <h3>Voice-first profiles</h3>
+        <p>Hear someone's voice before you see their face. A voice says more than any bio ever could.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">💬</div>
+        <h3>Conversation coach</h3>
+        <p>AI-powered coaching that gives you personalised advice for every conversation. Never run out of things to say.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">💫</div>
+        <h3>Pulse checks</h3>
+        <p>Track how your connections are going. Understand patterns and grow with gentle, honest insights.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔍</div>
+        <h3>Conversation analysis</h3>
+        <p>Understand your communication style and connection patterns. See what's working and what needs attention.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🃏</div>
+        <h3>Question cards</h3>
+        <p>Thoughtful question packs that help you go deeper, faster. Skip the small talk and find real connection.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📍</div>
+        <h3>Real-life matchmaking</h3>
+        <p>No swiping, no endless scrolling. Found connects you with people who are already part of your world.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- App Screenshots -->
+  <section style="padding: 120px 24px; background: var(--cream); text-align: center;">
+    <div class="section-label">Inside the app</div>
+    <h2 class="section-title">Designed for real life,<br>not endless scrolling.</h2>
+    <p class="section-sub">A quiet, beautiful space that lives on your phone — and only speaks up when something real is happening.</p>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 40px; max-width: 1100px; margin: 80px auto 0; align-items: end;">
+      <div style="text-align: center;">
+        <div class="iphone-frame" style="margin-bottom: 28px;">
+          <img src="screenshot-home.jpg" alt="Found home screen with your connections" style="width: 100%; display: block;">
+        </div>
+        <h3 style="font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--soft-black); margin-bottom: 8px;">Your connections</h3>
+        <p style="font-size: 0.95rem; color: var(--muted-grey); line-height: 1.6; max-width: 280px; margin: 0 auto;">A quiet home for the people who matter — track every connection as it grows.</p>
+      </div>
+
+      <div style="text-align: center; transform: translateY(-30px);">
+        <div class="iphone-frame" style="margin-bottom: 28px; transform: scale(1.08);">
+          <img src="screenshot-crossed.jpg" alt="Crossed Your Path screen showing nearby compatible matches" style="width: 100%; display: block;">
+        </div>
+        <h3 style="font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--soft-black); margin-bottom: 8px;">The magic moment</h3>
+        <p style="font-size: 0.95rem; color: var(--muted-grey); line-height: 1.6; max-width: 280px; margin: 0 auto;">When someone compatible crosses your path in real life, they appear here. Hear their voice before you see their face.</p>
+      </div>
+
+      <div style="text-align: center;">
+        <div class="iphone-frame" style="margin-bottom: 28px;">
+          <img src="screenshot-checkin.jpg" alt="Check-in calendar tracking how connections are going" style="width: 100%; display: block;">
+        </div>
+        <h3 style="font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--soft-black); margin-bottom: 8px;">Pulse checks</h3>
+        <p style="font-size: 0.95rem; color: var(--muted-grey); line-height: 1.6; max-width: 280px; margin: 0 auto;">Track how each connection is really feeling. Honest insights, gentle growth.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lifestyle moment -->
+  <section style="padding: 0 24px 100px; text-align: center;">
+    <div class="hero-visual" style="margin-top: 0;">
+      <img src="beach-moment.jpg" alt="A couple walking together at Bondi Beach during golden hour — the Found moment" style="max-height: 700px; width: auto;">
+    </div>
+    <p style="margin-top: 24px; font-family: 'Playfair Display', serif; font-size: 1.3rem; font-style: italic; color: var(--muted-grey);">The moment Found was made for.</p>
+  </section>
+
+  <!-- Video section -->
+  <section class="video-section">
+    <div class="section-label">A glimpse</div>
+    <h2 class="section-title">This is how it feels<br>when you stop swiping.</h2>
+    <p class="section-sub">90 seconds of the world Found was made for.</p>
+    <div class="video-container">
+      <video autoplay muted loop playsinline>
+        <source src="hero-video.mp4" type="video/mp4">
+      </video>
+    </div>
+  </section>
+
+  <!-- Testimonial / Built in Sydney -->
+  <section style="padding: 120px 24px; background: var(--warm-white); text-align: center;">
+    <div style="max-width: 800px; margin: 0 auto;">
+      <div style="display: inline-flex; align-items: center; gap: 10px; padding: 8px 20px; background: var(--cream); border-radius: 100px; margin-bottom: 32px; font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase; color: var(--muted-grey); font-weight: 500;">
+        <span style="font-size: 1.1rem;">🌊</span> Born in Manly · Built for the world
+      </div>
+      <blockquote style="font-family: 'Playfair Display', serif; font-size: 1.8rem; font-style: italic; color: var(--soft-black); line-height: 1.5; margin-bottom: 24px;">
+        "Found was born from one simple belief — that the person you're looking for is already walking past you. We're just here to notice."
+      </blockquote>
+      <div style="font-size: 0.9rem; color: var(--muted-grey); letter-spacing: 1px; text-transform: uppercase;">— The Found Team</div>
+    </div>
+  </section>
+
+  <!-- Manifesto / More than a dating app -->
+  <section style="padding: 140px 24px; background: var(--cream); position: relative; overflow: hidden;">
+    <!-- Decorative heart watermark -->
+    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 40rem; color: rgba(139, 58, 58, 0.025); font-family: 'Playfair Display', serif; pointer-events: none; z-index: 0; line-height: 1;">♥</div>
+
+    <div style="max-width: 880px; margin: 0 auto; position: relative; z-index: 1;">
+      <div class="section-label" style="text-align: center;">Our promise to you</div>
+      <h2 class="section-title" style="text-align: center;">Found isn't just a dating app.<br><em>It's the friend who has your back.</em></h2>
+
+      <div style="max-width: 760px; margin: 60px auto 0; text-align: center;">
+        <p style="font-size: 1.2rem; line-height: 2; color: var(--charcoal); margin-bottom: 32px;">
+          We know what it feels like to be tired. Tired of swiping. Tired of performing. Tired of wondering if there's something wrong with you because nothing has worked. Tired of hoping, and then being let down again.
+        </p>
+        <p style="font-size: 1.2rem; line-height: 2; color: var(--charcoal); margin-bottom: 32px;">
+          We built Found because <em>you deserve better</em>. You deserve a space that understands you, remembers what you're looking for, and quietly works in your corner — even when you forget to.
+        </p>
+        <p style="font-size: 1.35rem; line-height: 1.8; font-family: 'Playfair Display', serif; font-style: italic; color: var(--soft-black); margin: 48px 0;">
+          Found is your personal matchmaker,<br>
+          your quiet cheerleader,<br>
+          your wise friend at 2am,<br>
+          and the person who notices the one you almost missed.
+        </p>
+      </div>
+
+      <!-- Feature list with emotion -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px; max-width: 960px; margin: 80px auto 0;">
+        <div style="background: var(--warm-white); padding: 36px 32px; border-radius: 20px; box-shadow: var(--paper-shadow); border-left: 3px solid var(--heart-red);">
+          <div style="font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--heart-red); margin-bottom: 12px; line-height: 1;">✦</div>
+          <h3 style="font-family: 'Playfair Display', serif; font-size: 1.25rem; color: var(--soft-black); margin-bottom: 12px;">AI that knows your heart</h3>
+          <p style="font-size: 0.98rem; color: var(--muted-grey); line-height: 1.8;">Found's intelligent matchmaker learns the shape of who you are — your values, your humour, the way you love. Then it searches the world for the one who fits.</p>
+        </div>
+
+        <div style="background: var(--warm-white); padding: 36px 32px; border-radius: 20px; box-shadow: var(--paper-shadow); border-left: 3px solid var(--heart-red);">
+          <div style="font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--heart-red); margin-bottom: 12px; line-height: 1;">✦</div>
+          <h3 style="font-family: 'Playfair Display', serif; font-size: 1.25rem; color: var(--soft-black); margin-bottom: 12px;">A coach in your corner</h3>
+          <p style="font-size: 0.98rem; color: var(--muted-grey); line-height: 1.8;">Not sure what to say? Stuck on a date? Found's AI coach is right there with gentle, personalised advice — like a friend who's been there, without the judgement.</p>
+        </div>
+
+        <div style="background: var(--warm-white); padding: 36px 32px; border-radius: 20px; box-shadow: var(--paper-shadow); border-left: 3px solid var(--heart-red);">
+          <div style="font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--heart-red); margin-bottom: 12px; line-height: 1;">✦</div>
+          <h3 style="font-family: 'Playfair Display', serif; font-size: 1.25rem; color: var(--soft-black); margin-bottom: 12px;">Honest insights, gentle growth</h3>
+          <p style="font-size: 0.98rem; color: var(--muted-grey); line-height: 1.8;">Pulse checks track how each connection feels — the magic, the doubts, the red flags. Found helps you see clearly, so you can choose wisely.</p>
+        </div>
+
+        <div style="background: var(--warm-white); padding: 36px 32px; border-radius: 20px; box-shadow: var(--paper-shadow); border-left: 3px solid var(--heart-red);">
+          <div style="font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--heart-red); margin-bottom: 12px; line-height: 1;">✦</div>
+          <h3 style="font-family: 'Playfair Display', serif; font-size: 1.25rem; color: var(--soft-black); margin-bottom: 12px;">Voice before photos</h3>
+          <p style="font-size: 0.98rem; color: var(--muted-grey); line-height: 1.8;">A voice carries more truth than any filter ever could. Hear someone's warmth, their humour, their soul — before you ever see their face.</p>
+        </div>
+
+        <div style="background: var(--warm-white); padding: 36px 32px; border-radius: 20px; box-shadow: var(--paper-shadow); border-left: 3px solid var(--heart-red);">
+          <div style="font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--heart-red); margin-bottom: 12px; line-height: 1;">✦</div>
+          <h3 style="font-family: 'Playfair Display', serif; font-size: 1.25rem; color: var(--soft-black); margin-bottom: 12px;">Question cards that go deep</h3>
+          <p style="font-size: 0.98rem; color: var(--muted-grey); line-height: 1.8;">Beautiful prompts that skip the small talk and take you somewhere real. Found helps you find the courage to ask what actually matters.</p>
+        </div>
+
+        <div style="background: var(--warm-white); padding: 36px 32px; border-radius: 20px; box-shadow: var(--paper-shadow); border-left: 3px solid var(--heart-red);">
+          <div style="font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--heart-red); margin-bottom: 12px; line-height: 1;">✦</div>
+          <h3 style="font-family: 'Playfair Display', serif; font-size: 1.25rem; color: var(--soft-black); margin-bottom: 12px;">We're here until the end</h3>
+          <p style="font-size: 0.98rem; color: var(--muted-grey); line-height: 1.8;">First date butterflies, hard conversations, moments of doubt — Found walks with you through every step. Not just until you match. Until you find <em>the one</em>.</p>
+        </div>
+      </div>
+
+      <!-- "Don't look far away" quote -->
+      <div style="max-width: 820px; margin: 120px auto 0; text-align: center; padding: 60px 40px; position: relative;">
+        <div style="font-family: 'Playfair Display', serif; font-size: 6rem; color: var(--heart-red); opacity: 0.15; line-height: 0.6; margin-bottom: 20px;">“</div>
+        <p style="font-family: 'Playfair Display', serif; font-size: 2rem; font-style: italic; color: var(--soft-black); line-height: 1.5; margin-bottom: 32px; font-weight: 400;">
+          Don't look far away<br>for the one you're looking for.
+        </p>
+        <p style="font-family: 'Inter', sans-serif; font-size: 1.1rem; line-height: 2; color: var(--charcoal); max-width: 640px; margin: 0 auto 32px;">
+          They're not in another city. They're not across an ocean.<br>
+          They're on your morning walk. In the café where you get your coffee.<br>
+          In the queue at your local bookshop. On the train you take every day.
+        </p>
+        <p style="font-family: 'Playfair Display', serif; font-size: 1.4rem; font-style: italic; color: var(--heart-red); line-height: 1.6; margin-bottom: 16px;">
+          They're already in your world —<br>
+          you just haven't noticed them yet.
+        </p>
+        <p style="font-family: 'Inter', sans-serif; font-size: 1rem; color: var(--muted-grey); line-height: 1.8; margin-top: 32px;">
+          Found is built for your daily life. Your everyday routine.<br>
+          The person waiting for you is closer than you think.
+        </p>
+        <div style="margin-top: 40px; display: inline-block; width: 60px; height: 1px; background: var(--heart-red); opacity: 0.4;"></div>
+      </div>
+
+      <!-- Hope moment image -->
+      <div style="max-width: 880px; margin: 80px auto 0; border-radius: 24px; overflow: hidden; box-shadow: var(--card-shadow);">
+        <img src="hope-moment.jpg" alt="A quiet hopeful moment — the feeling Found was built to give you" style="width: 100%; display: block;">
+      </div>
+
+      <!-- Closing promise -->
+      <div style="max-width: 720px; margin: 40px auto 0; text-align: center; padding: 48px 32px; background: var(--warm-white); border-radius: 24px; box-shadow: var(--card-shadow);">
+        <div style="font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--heart-red); margin-bottom: 16px; line-height: 1;">♥</div>
+        <p style="font-family: 'Playfair Display', serif; font-size: 1.5rem; font-style: italic; color: var(--soft-black); line-height: 1.5; margin-bottom: 20px;">
+          "Whatever you've been through,<br>whatever dating apps have done to your heart —<br>we've got you now."
+        </p>
+        <p style="font-size: 0.95rem; color: var(--muted-grey); letter-spacing: 1px; text-transform: uppercase;">— Our promise</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Philosophy quote -->
+  <section class="philosophy">
+    <blockquote>
+      "The best connections aren't found on a screen.<br>They happen when two people are brave enough<br>to exist in the same moment."
+      <div class="quote-attr">— The Found Philosophy</div>
+    </blockquote>
+  </section>
+
+  <!-- Pricing -->
+  <section class="pricing" id="pricing">
+    <div class="section-label">Simple pricing</div>
+    <h2 class="section-title">Your first match<br>is on the house.</h2>
+    <p class="section-sub">Try Found free. Fall in love with how it feels. Upgrade only when you're ready.</p>
+
+    <div class="pricing-cards">
+      <!-- Free -->
+      <div class="pricing-card">
+        <div class="pricing-label">Free Forever</div>
+        <div class="pricing-amount">$0</div>
+        <div class="pricing-period">no card required</div>
+        <ul class="pricing-features">
+          <li>✓ Your first match — completely free</li>
+          <li>✓ Hear voice intros</li>
+          <li>✓ See who's crossed your path</li>
+          <li style="opacity: 0.5;">— Limited messaging</li>
+          <li style="opacity: 0.5;">— No AI coach</li>
+          <li style="opacity: 0.5;">— No relationship tracking</li>
+        </ul>
+        <a href="#download" class="btn-primary">Start Free</a>
+      </div>
+
+      <!-- Monthly -->
+      <div class="pricing-card">
+        <div class="pricing-label">Monthly</div>
+        <div class="pricing-amount">$7.99</div>
+        <div class="pricing-period">per month</div>
+        <ul class="pricing-features">
+          <li>✓ Everything in Free</li>
+          <li>✓ Unlimited matches</li>
+          <li>✓ AI conversation coaching</li>
+          <li>✓ Conversation analysis</li>
+          <li>✓ Pulse checks & insights</li>
+          <li>✓ Cancel anytime</li>
+        </ul>
+        <a href="#download" class="btn-primary">Get Monthly</a>
+      </div>
+
+      <!-- Yearly Featured -->
+      <div class="pricing-card featured" style="transform: scale(1.06); box-shadow: 0 24px 60px rgba(139, 58, 58, 0.18), 0 0 0 2px var(--heart-red); position: relative; z-index: 2;">
+        <div class="pricing-save">Save 48%</div>
+        <div class="pricing-label">Yearly · Best Value</div>
+        <div class="pricing-amount">$49.99</div>
+        <div class="pricing-period">per year — just $4.17/mo</div>
+        <ul class="pricing-features">
+          <li>✓ Everything in Monthly</li>
+          <li>✓ Save $46 a year</li>
+          <li>✓ Priority matching</li>
+          <li>✓ Early access to new features</li>
+          <li>✓ Founding member status</li>
+          <li>✓ Cancel anytime</li>
+        </ul>
+        <a href="#download" class="btn-primary">Get Yearly</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section style="padding: 120px 24px; background: var(--warm-white);" id="faq">
+    <div style="max-width: 780px; margin: 0 auto;">
+      <div class="section-label" style="text-align: center;">Questions, answered</div>
+      <h2 class="section-title" style="text-align: center;">The honest answers.</h2>
+      <p class="section-sub" style="text-align: center;">Everything you might be wondering before you download.</p>
+
+      <div style="margin-top: 60px; display: flex; flex-direction: column; gap: 16px;">
+        <details style="background: var(--cream); padding: 24px 28px; border-radius: 16px; cursor: pointer; box-shadow: var(--paper-shadow);">
+          <summary style="font-family: 'Playfair Display', serif; font-size: 1.15rem; color: var(--soft-black); font-weight: 600; list-style: none; outline: none;">Is Found really free?</summary>
+          <p style="margin-top: 16px; color: var(--muted-grey); line-height: 1.8;">Yes. Your first match is completely free — no trial countdown, no credit card. You can hear voice intros, see who's crossed your path, and unlock your first connection at no cost. Premium plans unlock unlimited matches, AI coaching, and deeper insights.</p>
+        </details>
+
+        <details style="background: var(--cream); padding: 24px 28px; border-radius: 16px; cursor: pointer; box-shadow: var(--paper-shadow);">
+          <summary style="font-family: 'Playfair Display', serif; font-size: 1.15rem; color: var(--soft-black); font-weight: 600; list-style: none; outline: none;">How does the "crossing paths" feature work?</summary>
+          <p style="margin-top: 16px; color: var(--muted-grey); line-height: 1.8;">Found uses your phone's location quietly in the background. When someone whose values, intentions, and personality match yours is physically nearby — at the same café, walking the same beach, on the same train — our AI matchmaker recognises the moment and gently lets you know. No pings, no spam. Just the right person at the right time.</p>
+        </details>
+
+        <details style="background: var(--cream); padding: 24px 28px; border-radius: 16px; cursor: pointer; box-shadow: var(--paper-shadow);">
+          <summary style="font-family: 'Playfair Display', serif; font-size: 1.15rem; color: var(--soft-black); font-weight: 600; list-style: none; outline: none;">Is my location data private?</summary>
+          <p style="margin-top: 16px; color: var(--muted-grey); line-height: 1.8;">Always. Found never shares your exact location with anyone — not other users, not advertisers, never. Matching happens through anonymised proximity signals. Your privacy is the foundation of everything we build.</p>
+        </details>
+
+        <details style="background: var(--cream); padding: 24px 28px; border-radius: 16px; cursor: pointer; box-shadow: var(--paper-shadow);">
+          <summary style="font-family: 'Playfair Display', serif; font-size: 1.15rem; color: var(--soft-black); font-weight: 600; list-style: none; outline: none;">Why are messages limited?</summary>
+          <p style="margin-top: 16px; color: var(--muted-grey); line-height: 1.8;">Because real connection doesn't happen in text threads. We give you just enough words to break the ice — then we trust you to take it offline. No more weeks of back-and-forth that leads nowhere. Found is built to get you across a real table, not a glowing screen.</p>
+        </details>
+
+        <details style="background: var(--cream); padding: 24px 28px; border-radius: 16px; cursor: pointer; box-shadow: var(--paper-shadow);">
+          <summary style="font-family: 'Playfair Display', serif; font-size: 1.15rem; color: var(--soft-black); font-weight: 600; list-style: none; outline: none;">When can I download Found?</summary>
+          <p style="margin-top: 16px; color: var(--muted-grey); line-height: 1.8;">Found is launching first in Manly, Sydney on the App Store — currently in final review. Join the early list below to be the first to know the moment we go live. Android coming next.</p>
+        </details>
+
+        <details style="background: var(--cream); padding: 24px 28px; border-radius: 16px; cursor: pointer; box-shadow: var(--paper-shadow);">
+          <summary style="font-family: 'Playfair Display', serif; font-size: 1.15rem; color: var(--soft-black); font-weight: 600; list-style: none; outline: none;">What if I'm in a small town, not Sydney?</summary>
+          <p style="margin-top: 16px; color: var(--muted-grey); line-height: 1.8;">Found works best where there's density — but everyone is welcome. We're starting in Sydney and rolling out city by city. Sign up below and we'll let you know when Found arrives where you live.</p>
+        </details>
+
+        <details style="background: var(--cream); padding: 24px 28px; border-radius: 16px; cursor: pointer; box-shadow: var(--paper-shadow);">
+          <summary style="font-family: 'Playfair Display', serif; font-size: 1.15rem; color: var(--soft-black); font-weight: 600; list-style: none; outline: none;">Can I cancel anytime?</summary>
+          <p style="margin-top: 16px; color: var(--muted-grey); line-height: 1.8;">Of course. Cancel from the App Store with one tap. No questions, no friction, no guilt. We only want you here if Found is making your life better.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Free match CTA -->
+  <section class="free-banner" id="download">
+    <h2>Ready to find someone real?</h2>
+    <p>Download Found and your first match is completely free. No credit card needed. No trial. Just connection.</p>
+    <a href="#" class="btn-primary">Download on the App Store</a>
+    <p class="hero-note" style="margin-top: 20px;">Available on iOS. Android coming soon.</p>
+  </section>
+
+  <!-- Footer -->
+  <footer style="padding: 80px 24px 40px; background: var(--soft-black); color: var(--warm-white); text-align: center;">
+    <div style="max-width: 700px; margin: 0 auto;">
+      <div class="footer-logo" style="font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; margin-bottom: 12px; color: var(--warm-white);">F<span class="logo-heart">♥</span>ound</div>
+      <p style="font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.15rem; color: var(--warm-grey); margin-bottom: 48px;">Stop swiping. Start finding.</p>
+
+      <!-- Email signup -->
+      <div style="background: rgba(255,255,255,0.05); padding: 36px 28px; border-radius: 20px; margin-bottom: 48px; border: 1px solid rgba(255,255,255,0.08);">
+        <h3 style="font-family: 'Playfair Display', serif; font-size: 1.4rem; margin-bottom: 8px; color: var(--warm-white);">Be the first to find someone real.</h3>
+        <p style="font-size: 0.9rem; color: var(--warm-grey); margin-bottom: 24px;">Join the early list. We'll only email you when Found is ready in your city.</p>
+        <form action="#" method="post" style="display: flex; gap: 12px; max-width: 420px; margin: 0 auto; flex-wrap: wrap; justify-content: center;">
+          <input type="email" placeholder="your@email.com" required style="flex: 1; min-width: 200px; padding: 14px 20px; border-radius: 100px; border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.05); color: var(--warm-white); font-family: inherit; font-size: 0.95rem; outline: none;">
+          <button type="submit" style="padding: 14px 28px; border-radius: 100px; border: none; background: var(--warm-white); color: var(--soft-black); font-family: inherit; font-size: 0.95rem; font-weight: 500; cursor: pointer; white-space: nowrap;">Notify Me</button>
+        </form>
+      </div>
+
+      <div class="footer-links" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 28px; margin-bottom: 32px;">
+        <a href="#how" style="color: var(--warm-grey); text-decoration: none; font-size: 0.9rem; transition: color 0.2s;">How it works</a>
+        <a href="#features" style="color: var(--warm-grey); text-decoration: none; font-size: 0.9rem;">Features</a>
+        <a href="#pricing" style="color: var(--warm-grey); text-decoration: none; font-size: 0.9rem;">Pricing</a>
+        <a href="#faq" style="color: var(--warm-grey); text-decoration: none; font-size: 0.9rem;">FAQ</a>
+        <a href="https://sites.google.com/view/found-real-connections/privacy-policy" target="_blank" style="color: var(--warm-grey); text-decoration: none; font-size: 0.9rem;">Privacy</a>
+        <a href="mailto:rebeccamuze9@gmail.com" style="color: var(--warm-grey); text-decoration: none; font-size: 0.9rem;">Support</a>
+      </div>
+
+      <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 16px; font-size: 0.85rem; color: var(--warm-grey);">
+        <span>🌊</span> Made with love in Sydney, Australia
+      </div>
+
+      <p class="footer-copy" style="font-size: 0.8rem; color: rgba(255,255,255,0.35);">&copy; 2026 Found: Real Connections. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Dark mode toggle
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('found-theme', next);
+    }
+    // Load saved theme
+    (function() {
+      const saved = localStorage.getItem('found-theme');
+      if (saved) document.documentElement.setAttribute('data-theme', saved);
+    })();
+
+    // Sticky nav shadow on scroll
+    const nav = document.querySelector('nav');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 20) nav.classList.add('scrolled');
+      else nav.classList.remove('scrolled');
+    });
+
+    // Scroll reveal — add .reveal to every section and observe
+    document.querySelectorAll('section, .numbers-strip').forEach(el => el.classList.add('reveal'));
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -80px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
+
+</body>
+</html>
