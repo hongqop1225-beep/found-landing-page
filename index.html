@@ -835,20 +835,20 @@
     <a href="#" class="nav-logo">F<span class="logo-heart">♥</span>ound</a>
     <div class="nav-right">
       <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" title="Toggle dark mode">◐</button>
-      <a href="#download" class="nav-cta">Download</a>
+      <a href="#waitlist" class="nav-cta">Join Waitlist</a>
     </div>
   </nav>
 
   <!-- Hero -->
   <section class="hero">
-    <div class="hero-badge">First match free</div>
+    <div class="hero-badge" style="background: linear-gradient(135deg, rgba(196,168,130,0.2), rgba(139,58,58,0.15)); border: 1px solid rgba(196,168,130,0.3);">✨ Coming Soon to Sydney</div>
     <h1>Stop swiping.<br>Start <em>finding.</em></h1>
     <p class="hero-sub">Found notices when someone compatible crosses your path in real life — then helps you actually connect.</p>
     <div class="hero-buttons">
-      <a href="#download" class="btn-primary">Download on the App Store</a>
+      <a href="#waitlist" class="btn-primary">Join the Waitlist</a>
       <a href="#how" class="btn-secondary">See how it works</a>
     </div>
-    <p class="hero-note">Free to download. Your first match is on us.</p>
+    <p class="hero-note">Launching soon on iOS. Your first match is free.</p>
 
     <div class="hero-visual">
       <img src="hero-image.jpg" alt="Two people crossing paths on a beautiful sunny day">
@@ -1297,12 +1297,16 @@
     </div>
   </section>
 
-  <!-- Free match CTA -->
-  <section class="free-banner" id="download">
-    <h2>Ready to find someone real?</h2>
-    <p>Download Found and your first match is completely free. No credit card needed. No trial. Just connection.</p>
-    <a href="#" class="btn-primary">Download on the App Store</a>
-    <p class="hero-note" style="margin-top: 20px;">Available on iOS. Android coming soon.</p>
+  <!-- Waitlist CTA -->
+  <section class="free-banner" id="waitlist">
+    <h2>Be one of the first to find someone real.</h2>
+    <p>Found is launching soon in Sydney. Join the waitlist and we'll let you know the moment it's live. Your first match is free.</p>
+    <form name="waitlist" method="POST" data-netlify="true" style="display: flex; gap: 12px; max-width: 480px; margin: 28px auto 0; flex-wrap: wrap; justify-content: center;">
+      <input type="hidden" name="form-name" value="waitlist">
+      <input type="email" name="email" placeholder="your@email.com" required style="flex: 1; min-width: 220px; padding: 16px 24px; border-radius: 100px; border: 1px solid rgba(0,0,0,0.1); background: var(--warm-white); color: var(--charcoal); font-family: inherit; font-size: 1rem; outline: none;">
+      <button type="submit" class="btn-primary" style="border: none; cursor: pointer; font-family: inherit; font-size: 1rem;">Notify Me ✨</button>
+    </form>
+    <p class="hero-note" style="margin-top: 20px;">Launching on iOS first. Android coming next.</p>
   </section>
 
   <!-- Footer -->
@@ -1315,8 +1319,9 @@
       <div style="background: rgba(255,255,255,0.05); padding: 36px 28px; border-radius: 20px; margin-bottom: 48px; border: 1px solid rgba(255,255,255,0.08);">
         <h3 style="font-family: 'Playfair Display', serif; font-size: 1.4rem; margin-bottom: 8px; color: var(--warm-white);">Be the first to find someone real.</h3>
         <p style="font-size: 0.9rem; color: var(--warm-grey); margin-bottom: 24px;">Join the early list. We'll only email you when Found is ready in your city.</p>
-        <form action="#" method="post" style="display: flex; gap: 12px; max-width: 420px; margin: 0 auto; flex-wrap: wrap; justify-content: center;">
-          <input type="email" placeholder="your@email.com" required style="flex: 1; min-width: 200px; padding: 14px 20px; border-radius: 100px; border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.05); color: var(--warm-white); font-family: inherit; font-size: 0.95rem; outline: none;">
+        <form name="waitlist-footer" method="POST" data-netlify="true" style="display: flex; gap: 12px; max-width: 420px; margin: 0 auto; flex-wrap: wrap; justify-content: center;">
+          <input type="hidden" name="form-name" value="waitlist-footer">
+          <input type="email" name="email" placeholder="your@email.com" required style="flex: 1; min-width: 200px; padding: 14px 20px; border-radius: 100px; border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.05); color: var(--warm-white); font-family: inherit; font-size: 0.95rem; outline: none;">
           <button type="submit" style="padding: 14px 28px; border-radius: 100px; border: none; background: var(--warm-white); color: var(--soft-black); font-family: inherit; font-size: 0.95rem; font-weight: 500; cursor: pointer; white-space: nowrap;">Notify Me</button>
         </form>
       </div>
