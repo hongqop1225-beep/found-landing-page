@@ -325,9 +325,17 @@
       z-index: 2;
     }
 
-    /* Hide background video on small screens — saves data, keeps speed */
+    /* Mobile: keep the cinematic background, tuned for smaller screens */
     @media (max-width: 767px) {
-      .hero-bg-video, .hero-bg-veil { display: none; }
+      .hero-bg-video {
+        opacity: 0.35;
+      }
+      .hero-bg-veil {
+        background: linear-gradient(180deg, rgba(245,240,235,0.5) 0%, rgba(245,240,235,0.2) 40%, rgba(245,240,235,0.9) 100%);
+      }
+      [data-theme="dark"] .hero-bg-veil {
+        background: linear-gradient(180deg, rgba(20,20,20,0.55) 0%, rgba(20,20,20,0.3) 40%, rgba(20,20,20,0.92) 100%);
+      }
     }
 
     /* ── Hero image ─────────────────────────── */
