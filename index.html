@@ -275,6 +275,7 @@
       text-align: center;
       padding: 120px 24px 80px;
       position: relative;
+      overflow: hidden;
     }
 
     .hero::before {
@@ -288,6 +289,45 @@
       background: radial-gradient(circle, var(--soft-glow) 0%, transparent 70%);
       border-radius: 50%;
       pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Cinematic background video — desktop only */
+    .hero-bg-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+      opacity: 0.28;
+      pointer-events: none;
+    }
+
+    [data-theme="dark"] .hero-bg-video {
+      opacity: 0.22;
+    }
+
+    .hero-bg-veil {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(245,240,235,0.55) 0%, rgba(245,240,235,0.25) 45%, rgba(245,240,235,0.85) 100%);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    [data-theme="dark"] .hero-bg-veil {
+      background: linear-gradient(180deg, rgba(20,20,20,0.6) 0%, rgba(20,20,20,0.3) 45%, rgba(20,20,20,0.9) 100%);
+    }
+
+    .hero > *:not(.hero-bg-video):not(.hero-bg-veil) {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Hide background video on small screens — saves data, keeps speed */
+    @media (max-width: 767px) {
+      .hero-bg-video, .hero-bg-veil { display: none; }
     }
 
     /* ── Hero image ─────────────────────────── */
@@ -849,6 +889,10 @@
 
   <!-- Hero -->
   <section class="hero">
+    <video class="hero-bg-video" autoplay muted loop playsinline preload="metadata" poster="hero-image.jpg">
+      <source src="hero-video.mp4" type="video/mp4">
+    </video>
+    <div class="hero-bg-veil"></div>
     <div class="hero-badge" style="background: linear-gradient(135deg, rgba(196,168,130,0.2), rgba(139,58,58,0.15)); border: 1px solid rgba(196,168,130,0.3);">✨ Coming Soon to Sydney</div>
     <h1>Stop swiping.<br>Start <em>finding.</em></h1>
     <p class="hero-sub">Found notices when someone compatible crosses your path in real life — then helps you actually connect.</p>
@@ -1063,18 +1107,10 @@
     <p style="margin-top: 24px; font-family: 'Playfair Display', serif; font-size: 1.3rem; font-style: italic; color: var(--muted-grey);">The moment Found was made for.</p>
   </section>
 
-  <!-- Atmospheric 15-sec loop -->
-  <section class="video-section">
-    <div class="video-container" style="max-width: 1100px;">
-      <video autoplay muted loop playsinline>
-        <source src="hero-video.mp4" type="video/mp4">
-      </video>
-    </div>
-  </section>
-
   <!-- Feature Film — YouTube embed -->
-  <section class="video-section" id="film" style="padding-top: 40px;">
-    <div class="section-label">Episode 01</div>
+  <section class="video-section" id="film">
+    <div class="section-label">Episode 01 · The Film</div>
+    <h2 class="section-title">This is how it feels<br>when you stop swiping.</h2>
     <div class="video-container">
       <iframe
         src="https://www.youtube-nocookie.com/embed/_jSd5HeAC9w?rel=0&modestbranding=1&playsinline=1"
