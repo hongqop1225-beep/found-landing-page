@@ -325,17 +325,27 @@
       z-index: 2;
     }
 
-    /* Mobile: keep the cinematic background, tuned for smaller screens */
+    /* Mobile: promote the video from "background" to "hero visual" — full landscape, no awkward crop */
     @media (max-width: 767px) {
+      .hero {
+        justify-content: flex-start;
+        padding: 100px 20px 40px;
+      }
       .hero-bg-video {
-        opacity: 0.35;
+        position: relative;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+        opacity: 1;
+        border-radius: 18px;
+        margin: 0 0 28px;
+        box-shadow: 0 20px 50px rgba(0,0,0,0.18);
+        order: -1;
       }
-      .hero-bg-veil {
-        background: linear-gradient(180deg, rgba(245,240,235,0.5) 0%, rgba(245,240,235,0.2) 40%, rgba(245,240,235,0.9) 100%);
-      }
-      [data-theme="dark"] .hero-bg-veil {
-        background: linear-gradient(180deg, rgba(20,20,20,0.55) 0%, rgba(20,20,20,0.3) 40%, rgba(20,20,20,0.92) 100%);
-      }
+      .hero-bg-veil { display: none; }
+      .hero .hero-visual { display: none; }
+      .hero h1 { margin-top: 8px; }
     }
 
     /* ── Hero image ─────────────────────────── */
