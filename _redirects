@@ -1,3 +1,2 @@
-/privacy   /privacy.html   200
-/terms     /terms.html     200
-/support   /support.html   200
+# Cloudflare Pages auto-strips .html, so no rewrite rules needed.
+# Add custom redirects below if needed in the future.
