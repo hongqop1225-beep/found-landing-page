@@ -25,8 +25,8 @@
   <meta name="twitter:image" content="hero-image.jpg">
 
   <!-- Favicon — inline SVG heart -->
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90' text-anchor='middle' x='50'%3E♥%3C/text%3E%3C/svg%3E">
-  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23F5F0EB'/%3E%3Ctext y='.9em' font-size='80' text-anchor='middle' x='50' fill='%238B3A3A'%3E♥%3C/text%3E%3C/svg%3E">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23F5F0EB'/%3E%3Ctext x='50' y='62' font-family='Georgia,serif' font-size='52' font-weight='700' text-anchor='middle' fill='%231A1A1A'%3EF%3C/text%3E%3Ctext x='72' y='42' font-size='22' text-anchor='middle' fill='%238B3A3A'%3E♥%3C/text%3E%3C/svg%3E">
+  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' rx='40' fill='%23F5F0EB'/%3E%3Ctext x='90' y='112' font-family='Georgia,serif' font-size='94' font-weight='700' text-anchor='middle' fill='%231A1A1A'%3EF%3C/text%3E%3Ctext x='130' y='75' font-size='40' text-anchor='middle' fill='%238B3A3A'%3E♥%3C/text%3E%3C/svg%3E">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -247,6 +247,38 @@
     @keyframes pulse-dot {
       0%, 100% { opacity: 1; transform: scale(1); }
       50% { opacity: 0.6; transform: scale(1.3); }
+    }
+
+    /* ── Soft edge glow (the warm cocoon) ─────────────────────────── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      box-shadow: inset 0 0 140px 20px rgba(196, 168, 130, 0.28),
+                  inset 0 0 60px rgba(139, 58, 58, 0.06);
+      mix-blend-mode: multiply;
+    }
+    [data-theme="dark"] body::before {
+      box-shadow: inset 0 0 140px 20px rgba(139, 58, 58, 0.18),
+                  inset 0 0 60px rgba(196, 168, 130, 0.04);
+      mix-blend-mode: screen;
+    }
+
+    /* ── Outro video gentle fade-in ─────────────────────────── */
+    .outro-film video {
+      opacity: 0;
+      transition: opacity 1.6s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .outro-film video.loaded {
+      opacity: 1;
+    }
+
+    /* ── Hero parallax ─────────────────────────── */
+    .hero::before {
+      will-change: transform;
+      transition: transform 0.1s linear;
     }
 
     /* ── Sticky mobile CTA ─────────────────────────── */
@@ -1472,10 +1504,14 @@
       document.documentElement.setAttribute('data-theme', next);
       localStorage.setItem('found-theme', next);
     }
-    // Load saved theme
+    // Load saved theme — fall back to system preference on first visit
     (function() {
       const saved = localStorage.getItem('found-theme');
-      if (saved) document.documentElement.setAttribute('data-theme', saved);
+      if (saved) {
+        document.documentElement.setAttribute('data-theme', saved);
+      } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
     })();
 
     // Sticky nav shadow on scroll
@@ -1532,6 +1568,29 @@
     }
     wireForm('waitlist-form', 'waitlist-success');
     wireForm('waitlist-footer-form', 'waitlist-footer-success');
+
+    // ── Outro video gentle fade-in once it's ready ──
+    const outroVideo = document.querySelector('.outro-film video');
+    if (outroVideo) {
+      if (outroVideo.readyState >= 3) {
+        outroVideo.classList.add('loaded');
+      } else {
+        outroVideo.addEventListener('loadeddata', () => outroVideo.classList.add('loaded'));
+      }
+    }
+
+    // ── Hero parallax: glow drifts slower than scroll ──
+    const heroSection = document.querySelector('.hero');
+    if (heroSection && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      window.addEventListener('scroll', () => {
+        const offset = window.scrollY * 0.35;
+        heroSection.style.setProperty('--parallax', `translateX(-50%) translateY(${offset}px)`);
+        const before = heroSection.querySelector('::before');
+      }, { passive: true });
+      const styleEl = document.createElement('style');
+      styleEl.textContent = `.hero::before { transform: var(--parallax, translateX(-50%)); }`;
+      document.head.appendChild(styleEl);
+    }
 
     // ── Sticky mobile CTA: show after scrolling past hero ──
     const stickyCta = document.querySelector('.sticky-mobile-cta');
