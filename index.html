@@ -47,21 +47,6 @@
       --card-shadow: 0 8px 40px rgba(0,0,0,0.08);
     }
 
-    [data-theme="dark"] {
-      --cream: #12100E;
-      --warm-white: #1A1815;
-      --charcoal: #E8E4DD;
-      --soft-black: #F5F0EB;
-      --muted-grey: #9A958C;
-      --warm-grey: #6B665E;
-      --blush: #C4A882;
-      --heart-red: #D26D6D;
-      --soft-glow: rgba(210, 109, 109, 0.12);
-      --paper-shadow: 0 2px 20px rgba(0,0,0,0.3);
-      --card-shadow: 0 8px 40px rgba(0,0,0,0.4);
-    }
-
-    body, nav, section, footer, .pricing-card, details { transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease; }
 
     /* ── Scroll fade-in ─────────────────────────── */
     .reveal {
@@ -151,33 +136,6 @@
       background: rgba(0,0,0,0.08);
     }
 
-    /* ── Theme toggle ─────────────────────────── */
-    .theme-toggle {
-      background: none;
-      border: 1px solid rgba(0,0,0,0.1);
-      border-radius: 50%;
-      width: 38px;
-      height: 38px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--charcoal);
-      font-size: 1rem;
-      transition: all 0.3s ease;
-      margin-right: 12px;
-    }
-    .theme-toggle:hover {
-      background: rgba(0,0,0,0.05);
-      transform: scale(1.08);
-    }
-    [data-theme="dark"] .theme-toggle {
-      border-color: rgba(255,255,255,0.15);
-    }
-    [data-theme="dark"] .theme-toggle:hover {
-      background: rgba(255,255,255,0.08);
-    }
-
     .nav-right {
       display: flex;
       align-items: center;
@@ -260,12 +218,6 @@
                   inset 0 0 60px rgba(139, 58, 58, 0.06);
       mix-blend-mode: multiply;
     }
-    [data-theme="dark"] body::before {
-      box-shadow: inset 0 0 140px 20px rgba(139, 58, 58, 0.18),
-                  inset 0 0 60px rgba(196, 168, 130, 0.04);
-      mix-blend-mode: screen;
-    }
-
     /* ── Outro video gentle fade-in ─────────────────────────── */
     .outro-film video {
       opacity: 0;
@@ -881,7 +833,6 @@
       nav { padding: 14px 18px; }
       .nav-logo { font-size: 1.25rem; }
       .nav-cta { padding: 8px 18px; font-size: 0.78rem; }
-      .theme-toggle { width: 34px; height: 34px; margin-right: 8px; }
 
       section { padding: 70px 20px; }
       .hero { padding: 100px 20px 60px; min-height: auto; }
@@ -945,7 +896,6 @@
   <nav>
     <a href="#" class="nav-logo">F<span class="logo-heart">♥</span>ound</a>
     <div class="nav-right">
-      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" title="Toggle dark mode">◐</button>
       <a href="#waitlist" class="nav-cta">Join Waitlist</a>
     </div>
   </nav>
@@ -1497,22 +1447,6 @@
   </footer>
 
   <script>
-    // Dark mode toggle
-    function toggleTheme() {
-      const current = document.documentElement.getAttribute('data-theme');
-      const next = current === 'dark' ? 'light' : 'dark';
-      document.documentElement.setAttribute('data-theme', next);
-      localStorage.setItem('found-theme', next);
-    }
-    // Load saved theme — fall back to system preference on first visit
-    (function() {
-      const saved = localStorage.getItem('found-theme');
-      if (saved) {
-        document.documentElement.setAttribute('data-theme', saved);
-      } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.documentElement.setAttribute('data-theme', 'dark');
-      }
-    })();
 
     // Sticky nav shadow on scroll
     const nav = document.querySelector('nav');
