@@ -244,6 +244,43 @@
       60% { transform: scale(1); }
     }
 
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(1.3); }
+    }
+
+    /* ── Sticky mobile CTA ─────────────────────────── */
+    .sticky-mobile-cta {
+      display: none;
+      position: fixed;
+      bottom: 16px;
+      left: 16px;
+      right: 16px;
+      z-index: 99;
+      padding: 16px 24px;
+      background: var(--heart-red);
+      color: var(--warm-white);
+      text-align: center;
+      text-decoration: none;
+      border-radius: 100px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+      box-shadow: 0 8px 32px rgba(139, 58, 58, 0.35);
+      opacity: 0;
+      transform: translateY(80px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+    .sticky-mobile-cta.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @media (max-width: 768px) {
+      .sticky-mobile-cta { display: block; }
+      body { padding-bottom: 80px; }
+    }
+
     .nav-cta {
       padding: 10px 28px;
       background: var(--soft-black);
@@ -1359,6 +1396,11 @@
 
   <!-- Waitlist CTA -->
   <section class="free-banner" id="waitlist">
+    <!-- Social proof badge — update the number manually as your list grows -->
+    <div style="display: inline-flex; align-items: center; gap: 10px; padding: 8px 18px; background: rgba(139,58,58,0.08); border: 1px solid rgba(139,58,58,0.15); border-radius: 100px; margin-bottom: 24px; font-size: 0.85rem; color: var(--heart-red); font-weight: 500; letter-spacing: 0.3px;">
+      <span style="display: inline-block; width: 8px; height: 8px; background: #4ade80; border-radius: 50%; box-shadow: 0 0 8px #4ade80; animation: pulse-dot 2s ease-in-out infinite;"></span>
+      <span><strong id="waitlist-count">127</strong> Sydneysiders on the early list</span>
+    </div>
     <h2>Be one of the first to find someone real.</h2>
     <p>Found is launching soon in Sydney. Join the waitlist and we'll let you know the moment it's live. Your first match is free.</p>
     <form id="waitlist-form" action="https://formspree.io/f/xkokbknv" method="POST" style="display: flex; gap: 12px; max-width: 480px; margin: 28px auto 0; flex-wrap: wrap; justify-content: center;">
@@ -1490,7 +1532,23 @@
     }
     wireForm('waitlist-form', 'waitlist-success');
     wireForm('waitlist-footer-form', 'waitlist-footer-success');
+
+    // ── Sticky mobile CTA: show after scrolling past hero ──
+    const stickyCta = document.querySelector('.sticky-mobile-cta');
+    if (stickyCta) {
+      window.addEventListener('scroll', () => {
+        const scrolled = window.scrollY > window.innerHeight * 0.8;
+        const atWaitlist = document.getElementById('waitlist')?.getBoundingClientRect().top < window.innerHeight;
+        stickyCta.classList.toggle('visible', scrolled && !atWaitlist);
+      }, { passive: true });
+    }
   </script>
+
+  <!-- Sticky mobile CTA -->
+  <a href="#waitlist" class="sticky-mobile-cta">Join the Waitlist ✨</a>
+
+  <!-- Cloudflare Web Analytics — replace YOUR_TOKEN_HERE after enabling in Cloudflare dashboard -->
+  <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "YOUR_TOKEN_HERE"}'></script>
 
 </body>
 </html>
