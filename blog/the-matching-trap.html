@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why dating apps keep failing (and what Bumble's $8B mistake taught us) — The Found Journal</title>
+<meta name="description" content="Bumble BFF has run for 9 years with zero revenue. RealRoots hit $782k/mo doing almost the same thing. Here's what the difference taught us about dating, and why Found is built on it.">
+<meta name="keywords" content="Bumble BFF failure, dating app problems, matching trap, RealRoots, Tinder alternative, Hinge alternative, Found matchmaker, dating app Sydney">
+<link rel="canonical" href="https://foundmatchmaker.com/blog/the-matching-trap">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Rebecca — Found Matchmaking">
+
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://foundmatchmaker.com/blog/the-matching-trap">
+<meta property="og:title" content="Why dating apps keep failing (and what Bumble's $8B mistake taught us)">
+<meta property="og:description" content="Better discovery isn't enough. Here's what 9 years of Bumble BFF zero revenue taught us about dating, and why we built Found differently.">
+<meta property="og:image" content="https://foundmatchmaker.com/hero-image.jpg">
+<meta property="og:locale" content="en_AU">
+<meta property="article:published_time" content="2026-04-20">
+<meta property="article:author" content="Rebecca">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Why dating apps keep failing (and what Bumble's $8B mistake taught us)",
+  "description": "Bumble BFF has run for 9 years with zero revenue. RealRoots hit $782k/mo doing almost the same thing. Here's what the difference taught us.",
+  "image": "https://foundmatchmaker.com/hero-image.jpg",
+  "datePublished": "2026-04-20",
+  "dateModified": "2026-04-20",
+  "author": { "@type": "Person", "name": "Rebecca" },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Found Matchmaking",
+    "logo": { "@type": "ImageObject", "url": "https://foundmatchmaker.com/hero-image.jpg" }
+  },
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://foundmatchmaker.com/blog/the-matching-trap" }
+}
+</script>
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23F5F0EB'/%3E%3Ctext x='50' y='62' font-family='Georgia,serif' font-size='52' font-weight='700' text-anchor='middle' fill='%231A1A1A'%3EF%3C/text%3E%3Ctext x='72' y='42' font-size='22' text-anchor='middle' fill='%238B3A3A'%3E♥%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --cream: #F5F0EB; --warm-white: #FAFAF7; --charcoal: #2C2C2C;
+    --soft-black: #1A1A1A; --muted-grey: #8A8A8A; --warm-grey: #B5B0A8;
+    --heart-red: #8B3A3A; --paper-shadow: 0 2px 20px rgba(0,0,0,0.06);
+  }
+  body { font-family: 'Inter', -apple-system, sans-serif; background: var(--cream); color: var(--charcoal); line-height: 1.8; font-size: 17px; overflow-x: hidden; }
+  body::before { content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 9999; box-shadow: inset 0 0 140px 20px rgba(196,168,130,0.28), inset 0 0 60px rgba(139,58,58,0.06); mix-blend-mode: multiply; }
+  nav { position: sticky; top: 0; z-index: 100; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; backdrop-filter: blur(20px); background: rgba(245,240,235,0.85); border-bottom: 1px solid rgba(0,0,0,0.04); }
+  .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: var(--soft-black); text-decoration: none; }
+  .nav-logo .heart { color: var(--heart-red); font-size: 0.75em; vertical-align: super; }
+  .nav-cta { padding: 10px 28px; background: var(--soft-black); color: var(--warm-white); border-radius: 50px; font-size: 0.85rem; font-weight: 500; text-decoration: none; transition: all 0.3s ease; }
+  .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 15px rgba(0,0,0,0.15); }
+
+  article { max-width: 700px; margin: 0 auto; padding: 80px 24px; }
+  .back-link { display: inline-block; color: var(--muted-grey); text-decoration: none; font-size: 0.9rem; margin-bottom: 32px; transition: color 0.2s; }
+  .back-link:hover { color: var(--heart-red); }
+  article .meta { font-size: 0.8rem; letter-spacing: 2.5px; text-transform: uppercase; color: var(--muted-grey); margin-bottom: 20px; }
+  article h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 2.9rem); font-weight: 700; line-height: 1.15; margin-bottom: 24px; color: var(--soft-black); letter-spacing: -0.02em; }
+  article .subtitle { font-size: 1.2rem; color: var(--muted-grey); margin-bottom: 48px; font-style: italic; font-family: 'Playfair Display', serif; }
+  article p { margin-bottom: 24px; color: #2a2a2a; }
+  article h2 { font-family: 'Playfair Display', serif; font-size: 1.7rem; font-weight: 600; color: var(--soft-black); margin: 48px 0 20px; line-height: 1.3; }
+  article blockquote { border-left: 3px solid var(--heart-red); padding: 4px 0 4px 24px; margin: 32px 0; font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.3rem; color: var(--soft-black); line-height: 1.5; }
+  article a { color: var(--heart-red); text-decoration: underline; text-underline-offset: 3px; }
+  article strong { color: var(--soft-black); }
+  article .stat-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 32px 0; }
+  article .stat { padding: 24px; background: var(--warm-white); border-radius: 16px; box-shadow: var(--paper-shadow); }
+  article .stat .big { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 700; color: var(--heart-red); line-height: 1; }
+  article .stat .label { font-size: 0.85rem; color: var(--muted-grey); margin-top: 8px; letter-spacing: 1px; text-transform: uppercase; }
+
+  .comparison { margin: 40px 0; background: var(--warm-white); border-radius: 16px; overflow: hidden; box-shadow: var(--paper-shadow); }
+  .comparison .row { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1px solid rgba(0,0,0,0.06); }
+  .comparison .row:last-child { border-bottom: none; }
+  .comparison .row > div { padding: 18px 22px; font-size: 0.97rem; }
+  .comparison .row > div:first-child { border-right: 1px solid rgba(0,0,0,0.06); color: var(--muted-grey); }
+  .comparison .row > div:last-child { color: var(--soft-black); font-weight: 500; }
+  .comparison .header { background: var(--soft-black); }
+  .comparison .header > div { color: var(--warm-white); font-weight: 600; letter-spacing: 1px; text-transform: uppercase; font-size: 0.8rem; border: none; }
+
+  .author-card { display: flex; align-items: center; gap: 16px; padding: 32px 0; margin-top: 60px; border-top: 1px solid rgba(0,0,0,0.08); border-bottom: 1px solid rgba(0,0,0,0.08); }
+  .author-avatar { width: 56px; height: 56px; border-radius: 50%; background: linear-gradient(135deg, var(--heart-red), var(--warm-grey)); display: flex; align-items: center; justify-content: center; color: white; font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; }
+  .author-info .name { font-weight: 600; color: var(--soft-black); }
+  .author-info .role { color: var(--muted-grey); font-size: 0.9rem; }
+
+  .cta-box { margin-top: 60px; padding: 40px 32px; background: var(--warm-white); border-radius: 20px; text-align: center; box-shadow: var(--paper-shadow); }
+  .cta-box h3 { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--soft-black); margin-bottom: 12px; }
+  .cta-box p { color: var(--muted-grey); margin-bottom: 24px; }
+  .cta-box .btn { display: inline-block; padding: 14px 36px; background: var(--soft-black); color: var(--warm-white); text-decoration: none; border-radius: 100px; font-weight: 500; transition: transform 0.2s; }
+  .cta-box .btn:hover { transform: translateY(-2px); }
+
+  footer { padding: 60px 24px; background: var(--soft-black); color: var(--warm-white); text-align: center; }
+  footer a { color: var(--warm-grey); margin: 0 12px; text-decoration: none; font-size: 0.9rem; }
+  footer p { margin-top: 16px; color: var(--warm-grey); font-size: 0.85rem; }
+
+  @media (max-width: 600px) {
+    nav { padding: 16px 20px; }
+    article { padding: 40px 20px 60px; }
+    article .subtitle { font-size: 1.05rem; }
+    article blockquote { font-size: 1.1rem; padding-left: 18px; }
+    article .stat-row { grid-template-columns: 1fr; gap: 12px; }
+    .comparison .row { grid-template-columns: 1fr; }
+    .comparison .row > div:first-child { border-right: none; border-bottom: 1px solid rgba(0,0,0,0.06); }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">F<span class="heart">♥</span>ound</a>
+  <a href="/#waitlist" class="nav-cta">Join Waitlist</a>
+</nav>
+
+<article>
+  <a href="/blog" class="back-link">← Back to the Journal</a>
+
+  <p class="meta">20 April 2026 · 6 min read · Sydney</p>
+  <h1>Why dating apps keep failing (and what Bumble's $8B mistake taught us).</h1>
+  <p class="subtitle">Better discovery isn't enough. We didn't understand that until recently — and it changed how we built Found.</p>
+
+  <p>There's a story in tech right now that almost no one is talking about, and I can't stop thinking about it.</p>
+
+  <p>A seven-person startup called <strong>RealRoots</strong> just hit <strong>$782,000 in monthly revenue</strong> helping women make friends. Meanwhile <strong>Bumble</strong> — a publicly traded company once worth over eight billion dollars — has been trying to do the exact same thing for <strong>nine years</strong>, across three separate relaunches.</p>
+
+  <p>Per Bumble's most recent SEC filing, the BFF mode has generated <strong>zero dollars in revenue</strong>.</p>
+
+  <div class="stat-row">
+    <div class="stat">
+      <div class="big">$782k/mo</div>
+      <div class="label">RealRoots · 7 people · 2 years</div>
+    </div>
+    <div class="stat">
+      <div class="big">$0</div>
+      <div class="label">Bumble BFF · $8B company · 9 years</div>
+    </div>
+  </div>
+
+  <p>How?</p>
+
+  <h2>The Matching Trap</h2>
+
+  <p>Bumble owned the swipe and walked away. They assumed that if they gave women a better feed of potential friends — instead of potential dates — friendships would happen. Same interface, different goal.</p>
+
+  <p>They were wrong. Here's why.</p>
+
+  <blockquote>RealRoots owns the part Bumble never touched: a facilitator picks the venue, runs the first meet-up, and keeps the same six women together for seven weeks until they're actually friends.</blockquote>
+
+  <p>One product gave women more matches. The other gave them a friend group.</p>
+
+  <p>This has a name. Founders call it <strong>"The Matching Trap"</strong> — when a startup gives customers better discovery into their problem but doesn't reduce any of the actual <em>work</em> required to act on it.</p>
+
+  <h2>Dating apps are stuck in the same trap</h2>
+
+  <p>I kept reading this story and feeling a slow, uncomfortable recognition. Because if you squint, every dating app since 2012 has been running the exact same playbook Bumble BFF ran.</p>
+
+  <ul style="padding-left: 24px; margin-bottom: 24px;">
+    <li style="margin-bottom: 10px;"><strong>Tinder:</strong> here's 500 faces, you sort them.</li>
+    <li style="margin-bottom: 10px;"><strong>Hinge:</strong> here's a slightly smaller feed, you still sort them.</li>
+    <li style="margin-bottom: 10px;"><strong>Bumble:</strong> here's the same feed, but now you have to message first.</li>
+  </ul>
+
+  <p>In every case, the app gave you <em>more</em> options for discovery. But the <strong>work of actually meeting someone</strong> — writing, waiting, second-guessing, coordinating, showing up — stayed 100% on you.</p>
+
+  <p>Is it any wonder everyone's burned out?</p>
+
+  <h2>What the successful products have in common</h2>
+
+  <p>RealRoots picks the venue. Picks the group. Runs the first meeting. Keeps the group committed for seven weeks.</p>
+
+  <p>That's not "better discovery." That's <strong>doing the work.</strong></p>
+
+  <p>And it's exactly the move that's been missing from dating for a decade.</p>
+
+  <h2>How Found is different</h2>
+
+  <p>When we started building Found, we didn't have a framework for any of this. We just knew we were tired — tired of swiping, tired of scripted openers, tired of profiles that felt like auditions. So we asked ourselves a question:</p>
+
+  <blockquote>What if the app did the hard part for us?</blockquote>
+
+  <p>Not "here's a better feed." <strong>Here's the moment.</strong></p>
+
+  <p>Found uses a quiet AI matchmaker that notices when someone compatible is actually near you in real life — and then helps you connect when the moment is right. No endless inbox. No writing essays to strangers. No 500-face decision fatigue.</p>
+
+  <div class="comparison">
+    <div class="row header">
+      <div>Dating apps</div>
+      <div>Found</div>
+    </div>
+    <div class="row">
+      <div>Here's a feed of faces — you sort them</div>
+      <div>AI notices when someone compatible is near you</div>
+    </div>
+    <div class="row">
+      <div>You write the first message</div>
+      <div>Found helps you connect</div>
+    </div>
+    <div class="row">
+      <div>You do 100% of the filtering work</div>
+      <div>AI does the compatibility work</div>
+    </div>
+    <div class="row">
+      <div>Endless profiles = decision fatigue</div>
+      <div>Quiet, contextual, one match at a time</div>
+    </div>
+  </div>
+
+  <p>That's it. That's the whole idea.</p>
+
+  <h2>The lesson I keep coming back to</h2>
+
+  <p>Bumble didn't fail at BFF because women don't want friends. They failed because the problem isn't <em>finding</em> friends — it's doing the hundred small things between "match" and "friendship."</p>
+
+  <p>Dating is the same. The problem isn't finding a face. It's everything that comes after.</p>
+
+  <p>Found is our attempt to handle the everything-that-comes-after. To be the part of dating that every app has quietly asked you to do alone.</p>
+
+  <p>If that idea resonates with you, and you're tired of apps that give you <em>more</em> without ever making anything <em>easier</em> — <a href="/#waitlist">join our waitlist</a>. We're launching in Sydney soon, and your first match is free.</p>
+
+  <p style="margin-top: 40px; color: var(--muted-grey); font-style: italic;">— Rebecca<br>Founder, Found Matchmaking</p>
+
+  <div class="author-card">
+    <div class="author-avatar">R</div>
+    <div class="author-info">
+      <div class="name">Rebecca</div>
+      <div class="role">Founder, Found Matchmaking · Sydney</div>
+    </div>
+  </div>
+
+  <div class="cta-box">
+    <h3>Tired of dating apps?</h3>
+    <p>Found is launching soon in Sydney. Your first match is free.</p>
+    <a href="/#waitlist" class="btn">Join the Waitlist ✨</a>
+  </div>
+</article>
+
+<footer>
+  <div>
+    <a href="/">Home</a>
+    <a href="/blog">Blog</a>
+    <a href="/privacy">Privacy</a>
+    <a href="/terms">Terms</a>
+    <a href="/support">Support</a>
+  </div>
+  <p>© 2026 Found Matchmaking · Made with love in Sydney</p>
+</footer>
+
+</body>
+</html>
