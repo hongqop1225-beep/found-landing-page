@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Something broke in how we meet people — The Found Journal</title>
+<meta name="description" content="Dating apps gave us endless choices and somehow made it harder to choose anyone. Here's what went wrong — and what we're trying to fix at Found.">
+<meta name="keywords" content="dating apps problem, stop swiping, Tinder alternative, Hinge alternative, slow dating, Sydney dating, dating burnout">
+<link rel="canonical" href="https://foundmatchmaker.com/blog/something-broke-in-how-we-meet">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Rebecca — Found Matchmaking">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://foundmatchmaker.com/blog/something-broke-in-how-we-meet">
+<meta property="og:title" content="Something broke in how we meet people.">
+<meta property="og:description" content="Dating apps gave us endless choices and somehow made it harder to choose anyone. Here's what went wrong — and what we're trying to fix.">
+<meta property="og:image" content="https://foundmatchmaker.com/hero-image.jpg">
+<meta property="og:locale" content="en_AU">
+<meta property="article:published_time" content="2026-04-20">
+<meta property="article:author" content="Rebecca">
+
+<!-- Article structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Something broke in how we meet people.",
+  "description": "Dating apps gave us endless choices and somehow made it harder to choose anyone.",
+  "image": "https://foundmatchmaker.com/hero-image.jpg",
+  "datePublished": "2026-04-20",
+  "dateModified": "2026-04-20",
+  "author": {
+    "@type": "Person",
+    "name": "Rebecca"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Found Matchmaking",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://foundmatchmaker.com/hero-image.jpg"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://foundmatchmaker.com/blog/something-broke-in-how-we-meet"
+  }
+}
+</script>
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23F5F0EB'/%3E%3Ctext x='50' y='62' font-family='Georgia,serif' font-size='52' font-weight='700' text-anchor='middle' fill='%231A1A1A'%3EF%3C/text%3E%3Ctext x='72' y='42' font-size='22' text-anchor='middle' fill='%238B3A3A'%3E♥%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --cream: #F5F0EB;
+    --warm-white: #FAFAF7;
+    --charcoal: #2C2C2C;
+    --soft-black: #1A1A1A;
+    --muted-grey: #8A8A8A;
+    --warm-grey: #B5B0A8;
+    --heart-red: #8B3A3A;
+    --paper-shadow: 0 2px 20px rgba(0,0,0,0.06);
+  }
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--cream);
+    color: var(--charcoal);
+    line-height: 1.8;
+    font-size: 17px;
+    overflow-x: hidden;
+  }
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+    box-shadow: inset 0 0 140px 20px rgba(196, 168, 130, 0.28),
+                inset 0 0 60px rgba(139, 58, 58, 0.06);
+    mix-blend-mode: multiply;
+  }
+
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(20px);
+    background: rgba(245, 240, 235, 0.85);
+    border-bottom: 1px solid rgba(0,0,0,0.04);
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--soft-black);
+    text-decoration: none;
+  }
+  .nav-logo .heart {
+    color: var(--heart-red);
+    font-size: 0.75em;
+    vertical-align: super;
+  }
+  .nav-cta {
+    padding: 10px 28px;
+    background: var(--soft-black);
+    color: var(--warm-white);
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 15px rgba(0,0,0,0.15); }
+
+  article {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 80px 24px 80px;
+  }
+  .back-link {
+    display: inline-block;
+    color: var(--muted-grey);
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin-bottom: 32px;
+    transition: color 0.2s;
+  }
+  .back-link:hover { color: var(--heart-red); }
+
+  article .meta {
+    font-size: 0.8rem;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--muted-grey);
+    margin-bottom: 20px;
+  }
+  article h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 24px;
+    color: var(--soft-black);
+    letter-spacing: -0.02em;
+  }
+  article .subtitle {
+    font-size: 1.2rem;
+    color: var(--muted-grey);
+    margin-bottom: 48px;
+    font-style: italic;
+    font-family: 'Playfair Display', serif;
+  }
+  article p {
+    margin-bottom: 24px;
+    color: #2a2a2a;
+  }
+  article h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 600;
+    color: var(--soft-black);
+    margin: 48px 0 20px;
+    line-height: 1.3;
+  }
+  article blockquote {
+    border-left: 3px solid var(--heart-red);
+    padding: 4px 0 4px 24px;
+    margin: 32px 0;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.3rem;
+    color: var(--soft-black);
+    line-height: 1.5;
+  }
+  article a {
+    color: var(--heart-red);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  article strong { color: var(--soft-black); }
+
+  .author-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 32px 0;
+    margin-top: 60px;
+    border-top: 1px solid rgba(0,0,0,0.08);
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+  }
+  .author-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--heart-red), var(--warm-grey));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+  .author-info .name {
+    font-weight: 600;
+    color: var(--soft-black);
+  }
+  .author-info .role {
+    color: var(--muted-grey);
+    font-size: 0.9rem;
+  }
+
+  .cta-box {
+    margin-top: 60px;
+    padding: 40px 32px;
+    background: var(--warm-white);
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: var(--paper-shadow);
+  }
+  .cta-box h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: var(--soft-black);
+    margin-bottom: 12px;
+  }
+  .cta-box p {
+    color: var(--muted-grey);
+    margin-bottom: 24px;
+  }
+  .cta-box .btn {
+    display: inline-block;
+    padding: 14px 36px;
+    background: var(--soft-black);
+    color: var(--warm-white);
+    text-decoration: none;
+    border-radius: 100px;
+    font-weight: 500;
+    transition: transform 0.2s;
+  }
+  .cta-box .btn:hover { transform: translateY(-2px); }
+
+  footer {
+    padding: 60px 24px;
+    background: var(--soft-black);
+    color: var(--warm-white);
+    text-align: center;
+  }
+  footer a { color: var(--warm-grey); margin: 0 12px; text-decoration: none; font-size: 0.9rem; }
+  footer p { margin-top: 16px; color: var(--warm-grey); font-size: 0.85rem; }
+
+  @media (max-width: 600px) {
+    nav { padding: 16px 20px; }
+    article { padding: 40px 20px 60px; }
+    article .subtitle { font-size: 1.05rem; }
+    article blockquote { font-size: 1.1rem; padding-left: 18px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">F<span class="heart">♥</span>ound</a>
+  <a href="/#waitlist" class="nav-cta">Join Waitlist</a>
+</nav>
+
+<article>
+  <a href="/blog" class="back-link">← Back to the Journal</a>
+
+  <p class="meta">20 April 2026 · 4 min read · Sydney</p>
+  <h1>Something broke in how we meet people.</h1>
+  <p class="subtitle">Dating apps gave us endless choices and somehow made it harder to choose anyone.</p>
+
+  <p>Swipe left. Swipe left. Swipe left.</p>
+
+  <p>That's what the last decade of dating has sounded like for most of us. A thumb, a screen, a quiet exhaustion that didn't used to be there.</p>
+
+  <p>We were promised variety. We got overwhelm. We were promised connection. We got content.</p>
+
+  <blockquote>The dating app became the thing we did instead of dating.</blockquote>
+
+  <h2>The paradox of choice, but for people</h2>
+
+  <p>Barry Schwartz wrote about the paradox of choice almost twenty years ago — the idea that more options don't make us happier, they make us anxious. <strong>It turns out that's doubly true when the "options" are human beings.</strong></p>
+
+  <p>When you have 40 matches in your inbox, each conversation feels disposable. Why try hard with one person when tomorrow there might be someone better?</p>
+
+  <p>And so we don't try hard with anyone. And neither do they.</p>
+
+  <h2>The performance problem</h2>
+
+  <p>Scroll through any dating app and you'll see it: everyone is performing a curated version of themselves. The best photo. The wittiest line. The most aspirational lifestyle.</p>
+
+  <p>There's nothing wrong with putting your best foot forward. But when every profile is a performance, the whole experience becomes theatre. You're not meeting people — you're auditioning.</p>
+
+  <p>And audiences don't fall in love.</p>
+
+  <h2>What we're trying to fix</h2>
+
+  <p>We started building <strong>Found</strong> because we wanted something different. Not another swipe deck. Not another inbox full of "hey." Not another algorithm that rewards attractive strangers over compatible ones.</p>
+
+  <p>Our idea was simple and maybe a little stubborn: <strong>what if an app could notice when someone compatible was actually near you — in real life — and quietly help you notice them too?</strong></p>
+
+  <p>No swiping. No endless profiles. No performing for strangers.</p>
+
+  <p>Just a quiet nudge when the right person is in the same room.</p>
+
+  <h2>Meeting in real life isn't broken. We just stopped trying.</h2>
+
+  <p>The truth is, humans are still wired for the cafe. The bookshop. The waiting-for-the-ferry moment. We still remember how it feels when someone's eyes catch yours and something happens that no algorithm can replicate.</p>
+
+  <p>Dating apps didn't ruin romance. They just replaced the part where we had to be brave.</p>
+
+  <p>Found is our attempt to give that back.</p>
+
+  <h2>We're launching in Sydney first</h2>
+
+  <p>We're starting in Manly because it's where we live, and because we think small coastal suburbs are the perfect testing ground for an app that's supposed to help you meet people in real places, not through screens.</p>
+
+  <p>If you're tired of the apps, if you believe there's still something real worth finding — <a href="/#waitlist">join the waitlist</a>. Your first match is free.</p>
+
+  <p style="margin-top: 40px; color: var(--muted-grey); font-style: italic;">— Rebecca<br>Founder, Found Matchmaking</p>
+
+  <div class="author-card">
+    <div class="author-avatar">R</div>
+    <div class="author-info">
+      <div class="name">Rebecca</div>
+      <div class="role">Founder, Found Matchmaking · Sydney</div>
+    </div>
+  </div>
+
+  <div class="cta-box">
+    <h3>Be one of the first.</h3>
+    <p>Found launches soon in Sydney. Your first match is free.</p>
+    <a href="/#waitlist" class="btn">Join the Waitlist ✨</a>
+  </div>
+</article>
+
+<footer>
+  <div>
+    <a href="/">Home</a>
+    <a href="/blog">Blog</a>
+    <a href="/privacy">Privacy</a>
+    <a href="/terms">Terms</a>
+    <a href="/support">Support</a>
+  </div>
+  <p>© 2026 Found Matchmaking · Made with love in Sydney</p>
+</footer>
+
+</body>
+</html>
